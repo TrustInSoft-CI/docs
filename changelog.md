@@ -1,9 +1,18 @@
 # Changelog
 
+## 2020-11-26
+
+* [x] Some users have asked us to share a **detailed description of each supported target architecture** so they can pick the right subset of architectures to run their analyses on and therefore save analysis time.  It's done! The csv file available [here](reference/supported-architectures.md#list) contains, for each supported architecture, information such as `char` size, `short` size, `int` size, etc. 
+* [x] **New fields** [**`cpp-extra-args`**](reference/configuration-file.md#cpp-extra-args) **and** [**`cxx-cpp-extra-args`**](reference/configuration-file.md#cxx-cpp-extra-args) **in the tis.config file.** Use one or both of these two fields to let TrustInSoft CI know how to [preprocess](https://en.wikipedia.org/wiki/C_preprocessor) the source files in your project prior to the analysis.  You can provide either the preprocessing options that are relevant to your project and the analysis \(such as `-I`, `-D` or `-U` \) or the whole compilation line. TrustInSoft CI will keep only the relevant options.  Use `cpp-extra-args` and `cxx-cpp-extra-args` for respectively C and C++ source files. If your project contains source files in both languages, include both fields in the tis.config file.
+
+{% hint style="warning" %}
+These fields replace and deprecate the[`compilation_cmd`](reference/configuration-file.md#compilation_cmd)field. Please replace it with`cpp-extra-args`and/or`cxx-cpp-extra-args`in all your tis.config file!
+{% endhint %}
+
 ## 2020-11-10
 
 * [x] **Tired of working on 2 different tabs?** **The** [**Analyzer**](tutorial/find-the-root-cause-of-the-undefined-behaviors.md#launch-trustinsoft-ci-analyzer) **now opens in the same browser tab!** Previously, after you clicked on the Explore button, a new tab opened to load the Analyzer. When by chance the opening of this tab wasn't already blocked by your browser, this behavior was painful, since you had to go back and forth between the main TrustInSoft CI tab and this Analyzer tab. 
-* [x] **You can now share Analyzer URLs with other logged-in users!** And in an upcoming release, share them with logged-out users too! For example, it can be quite handy when you'd like to question someone else about an Undefined Behavior found. Click on an Explore button, copy-paste the Analyzer URL in the address bar and share it with others:
+* [x] **You can now share Analyzer URLs with other logged-in users!** And in an upcoming release, share them with logged-out users too! For example, it can be quite handy when you want to question someone about an Undefined Behavior found. Click on an Explore button, copy-paste the Analyzer URL in the address bar and share it with others:
 
 ![](.gitbook/assets/image%20%28190%29.png)
 
@@ -56,7 +65,7 @@ When`"no-results"`is set in the [tis.config](reference/configuration-file.md) fi
 
 ## 2020-07-28
 
-* [x] New test status **Invalid property**: ****you may for example use this new status to verify the result of your tests. Annotate your code with an [ACSL property](https://frama-c.com/acsl_tutorial_index.html). If TrustInSoft CI fails to verify such property, the test will fail with this status.  In the below example, TrustInSoft CI will check if the `vector_test` function returns `0` and it will return the **Invalid property** status otherwise:
+* [x] **New test status:** **Invalid property.** You may for example use this new status to verify the result of your tests. Annotate your code with an [ACSL property](https://frama-c.com/acsl_tutorial_index.html). If TrustInSoft CI fails to verify such property, the test will fail with this status.  In the below example, TrustInSoft CI will check if the `vector_test` function returns `0` and it will return the **Invalid property** status otherwise:
 
 ```c
 //@ ensures \result == 0;

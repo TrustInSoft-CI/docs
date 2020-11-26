@@ -15,7 +15,7 @@ Here is an example of a tis.config file, taken from our [tutorial](../tutorial/)
     {
         "name": "Test shift values 7 and -3",
         "files": [ "main.c", "caesar.c" ],
-        "compilation_cmd": "-I ."
+        "cpp-extra-args": "-I ."
     }
 ]
 ```
@@ -24,7 +24,7 @@ A typical test configuration object may contain the following fields \(most are 
 
 * `name`: the name you give to the test / test configuration object
 * `files`: an exhaustive list of all the source files \(such as `.c`, `.cpp` ...\) used by the test
-* `compilation_cmd`:  the compilation options to tell TrustInSoft CI how to parse the source files before the analysis
+* `cpp-extra-args`:  the compilation options to tell TrustInSoft CI how to parse the source files before the analysis \(use `cxx-cpp-extra-args`for C++ files\)
 * `main`: the name of the test's entry point function
 * `machdep`: the target hardware architecture for the analysis
 
@@ -41,12 +41,12 @@ Here is an example of a tis.config file with two configuration objects:
   {
       "name": "Test shift values 7 and -3",
       "files": [ "main.c", "caesar.c" ],
-      "compilation_cmd": "-I ."
+      "cpp-extra-args": "-I ."
   },
   {
       "name": "Test long input string",
       "files": [ "tests/long_string.c", "caesar.c" ],
-      "compilation_cmd": "-I. -Itests"
+      "cpp-extra-args": "-I. -Itests"
   }
 ]
 ```
@@ -69,9 +69,9 @@ The tis.config file should be written using the JSON [ECMA-404 standard](https:/
 
 ### `compilation_cmd`
 
-* **Description**: Either the compilation options or the whole compilation line to tell TrustInSoft CI how to parse the source files prior to the analysis. TrustInSoft CI will keep only the relevant options for its use case \(such as `-I`, `-D`, `-U`, `-iquote`, `-isystem`, `-iprefix`, `-idirafter` ...\). 
-* **Type**: string 
-* **Example:** `"compilation_cmd": "-DFOO -Itool"`
+{% hint style="warning" %}
+This field is now deprecated. Use[`cpp-extra-args`](configuration-file.md#cpp-extra-args)or[`cxx-cpp-extra-args`](configuration-file.md#cxx-cpp-extra-args)intead.
+{% endhint %}
 
 ### `compilation-database`
 
@@ -79,7 +79,7 @@ The tis.config file should be written using the JSON [ECMA-404 standard](https:/
 This field is mostly relevant if you are using tools such as [CMake](https://cmake.org/) or [Bear](https://github.com/rizsotto/Bear). In any case, the generated compilation database file\(s\) should be available in the GitHub repo.
 {% endhint %}
 
-* **Description**: Specifies one or a set of [compilation database JSON file\(s\)](https://clang.llvm.org/docs/JSONCompilationDatabase.html) to tell TrustInSoft CI how to parse the source files prior to the analysis. `compilation-database` can either replace or be used as a complement to `compilation_cmd`. If used as complement, TrustInSoft CI will first fetch the compilation options in `compilation-database`, then append the ones in `compilation_cmd`.  `compilation-database` accepts the following values: 
+* **Description**: Specifies one or a set of [compilation database JSON file\(s\)](https://clang.llvm.org/docs/JSONCompilationDatabase.html) to tell TrustInSoft CI how to parse the source files prior to the analysis. `compilation-database` can either replace or be used as a complement to `cpp-extra-args`. If used as complement, TrustInSoft CI will first fetch the compilation options in `compilation-database`, then append the ones in `cpp-extra-args`.  `compilation-database` accepts the following values: 
   * `true`: to enable reading the compilation database and scan all the 'compile\_commands.json' files located anywhere in the GitHub repository 
   * filename or list of filenames:
     * If the filename is a directory, TrustInSoft CI will scan every ‘compile\_commands.json’ file in this directory and its sub-directories.
@@ -89,6 +89,18 @@ This field is mostly relevant if you are using tools such as [CMake](https://cma
   * boolean
   * string
   * list of strings
+
+### `cpp-extra-args`
+
+* **Description**: The [preprocessing](https://en.wikipedia.org/wiki/C_preprocessor) options that are relevant to your project and the analysis \(such as `-I`, `-D` or `-U` \) or the whole compilation line, to let TrustInSoft CI know how to parse the C source files prior to the analysis. TrustInSoft CI will keep only the relevant options.  For C++ files, use [`cxx-cpp-extra-args`](configuration-file.md#cxx-cpp-extra-args) instead. If your project contains source files in both languages, include both fields in the tis.config file. 
+* **Type**: string 
+* **Example:** `"cpp-extra-args": "-DFOO -Itool"`
+
+### `cxx-cpp-extra-args`
+
+* **Description**: The [preprocessing](https://en.wikipedia.org/wiki/C_preprocessor) options that are relevant to your project and the analysis \(such as `-I`, `-D` or `-U` \) or the whole compilation line, to let TrustInSoft CI know how to parse the C++ source files prior to the analysis. TrustInSoft CI will keep only the relevant options.  For C files, use [`cpp-extra-args`](configuration-file.md#cpp-extra-args) instead. If your project contains source files in both languages, include both fields in the tis.config file. 
+* **Type**: string 
+* **Example:** `"cxx-cpp-extra-args": "-DFOO -Itool"`
 
 ### `cxx-std`
 

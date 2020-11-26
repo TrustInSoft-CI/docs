@@ -35,14 +35,16 @@ Then, let's embed it inside a JSON array, so more tests can be added later:
     {
         "name": "Test shift values 7 and -3",
         "files": [ "main.c", "caesar.c" ],
-        "compilation_cmd": "-I ."
+        "cpp-extra-args": "-I .",
+        "main": "main"
     }
 ]
 ```
 
-**1.** Copy-paste the above configuration object to your tis.config file:
+**1.** Copy-paste the above configuration object to your tis.config file:  
 
-![](../.gitbook/assets/image%20%28176%29.png)
+
+![](../.gitbook/assets/image%20%28201%29.png)
 
 **2.** Finally, push the tis.config file on your master branch by clicking **Commit new file**:
 

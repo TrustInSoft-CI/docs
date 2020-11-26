@@ -10,7 +10,13 @@ See below the list of currently supported architectures or [read more about mach
 
 ## Supported architectures <a id="list"></a>
 
-With the exception of `apple_ppc_32`, `x86_win32` and `x86_win64`, all target architectures may be specified with the `gcc_` prefix, in which case gcc language extensions are allowed, and the `__int128` integer type is available on a 64-bit `machdep`.
+{% hint style="info" %}
+With the exception of`apple_ppc_32, x86_win32` and`x86_win64`, all target architectures may be specified with the `gcc_` prefix, in which case gcc language extensions are allowed, and the`__int128`integer type is available on a 64-bit`machdep`.
+{% endhint %}
+
+Download a more detailed description of each supported architecture:
+
+{% file src="../.gitbook/assets/trustinsoft-ci-supported-architectures-2020-11-25.csv" caption="Supported architectures" %}
 
 | Architecture name in machdep | Endianness | Description |
 | :--- | :---: | :--- |
