@@ -10,13 +10,11 @@ See below the list of currently supported architectures or [read more about mach
 
 ## Supported architectures <a id="list"></a>
 
+The table below provides a high-level description and the endianness of each supported architecture. To get further information on the data types, visit the [Fundamental data types](supported-architectures.md#fundamental-data-types) section.
+
 {% hint style="info" %}
 With the exception of`apple_ppc_32, x86_win32` and`x86_win64`, all target architectures may be specified with the `gcc_` prefix, in which case gcc language extensions are allowed, and the`__int128`integer type is available on a 64-bit`machdep`.
 {% endhint %}
-
-Download a more detailed description of each supported architecture:
-
-{% file src="../.gitbook/assets/trustinsoft-ci-supported-architectures-2020-11-25.csv" caption="Supported architectures" %}
 
 | Architecture name in machdep | Endianness | Description |
 | :--- | :---: | :--- |
@@ -46,7 +44,10 @@ Download a more detailed description of each supported architecture:
 
 ## Fundamental data types
 
-Unless otherwise specified in the above list, the characteristics of the fundamental data types are:
+The table below provides the default characteristics of the fundamental data types.   
+Please refer to both the above table and the below csv file to get their exact characteristics for each architecture.
+
+{% file src="../.gitbook/assets/trustinsoft-ci-supported-architectures-2020-11-25.csv" caption="Data types per architecture" %}
 
 | Data type | Description |
 | :--- | :--- |
