@@ -2,7 +2,7 @@
 
 ## 2020-11-26
 
-* [x] Some users have asked us to share a **detailed description of each supported target architecture** so they can pick the right subset of architectures to run their analyses on and therefore save analysis time.  It's done! The csv file available [here](reference/supported-architectures.md#list) contains, for each supported architecture, information such as `char` size, `short` size, `int` size, etc. 
+* [x] Some users have asked us to share a **detailed description of each supported target architecture** so they can pick the right subset of architectures to run their analyses on and therefore save analysis time.  It's done! The csv file available [here](reference/supported-architectures.md#fundamental-data-types) contains, for each supported architecture, information such as `char` size, `short` size, `int` size, etc. 
 * [x] **New fields** [**`cpp-extra-args`**](reference/configuration-file.md#cpp-extra-args) **and** [**`cxx-cpp-extra-args`**](reference/configuration-file.md#cxx-cpp-extra-args) **in the tis.config file.** Use one or both of these two fields to let TrustInSoft CI know how to [preprocess](https://en.wikipedia.org/wiki/C_preprocessor) the source files in your project prior to the analysis.  You can provide either the preprocessing options that are relevant to your project and the analysis \(such as `-I`, `-D` or `-U` \) or the whole compilation line. TrustInSoft CI will keep only the relevant options.  Use `cpp-extra-args` and `cxx-cpp-extra-args` for respectively C and C++ source files. If your project contains source files in both languages, include both fields in the tis.config file.
 
 {% hint style="warning" %}
