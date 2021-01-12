@@ -1,5 +1,14 @@
 # Changelog
 
+## 2021-01-12
+
+* [x] **The Analyzer view is now open to guest users!** Previously, guest users had no choice but to create a TrustInSoft CI account to browse analysis results with the Analyzer. As TrustInSoft CI user, this made it impractical when you wanted to question someone, who'd never used TrustInSoft CI, about an Undefined Behavior.  Now, you can click on an Explore button, copy-paste the Analyzer URL in the address bar and share it with anyone, who can then freely look at the Undefined Behavior, without ever having to create an account:
+
+![](.gitbook/assets/image%20%28190%29.png)
+
+* [x] **Pull requests and git tags are now supported.** From now on, a new analysis will be triggered every time a pull request is created / updated or a git tag is pushed to your remote repository. Also learn if any given analysis refers to a branch update, a pull request or a tag by reading the REFERENCE columns which replaces the BRANCH column. 
+* [x] Other small improvements and fixes
+
 ## 2020-11-26
 
 * [x] Some users have asked us to share a **detailed description of each supported target architecture** so they can pick the right subset of architectures to run their analyses on and therefore save analysis time.  It's done! The csv file available [here](reference/supported-architectures.md#fundamental-data-types) contains, for each supported architecture, information such as `char` size, `short` size, `int` size, etc. 
