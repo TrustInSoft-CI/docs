@@ -1,5 +1,64 @@
 # Changelog
 
+## 2021-06-01
+
+- [x] **New feature: Dashboard**
+
+Previously, you had to use your browser history or bookmark to go back to a visited project that you do not own. And if you have a lot of projects, you may get lost in the project lists.
+
+This is the past. Now, a new Dashboard is available to focus on your recent activity, including your latest updated projects and the latest projects you visited.
+
+Some shortcut links are also available at the top of the Dashboard. Let us know which action you use the most to include it as a shortcut in this page in the future.
+
+- [x] **New feature: Search**
+
+Do you want to find a particular project or user in TrustInSoft CI?
+
+The new Search input is available at the top-right of the page to allow you to find and browse any project or user using TrustInSoft CI.
+
+As a bonus, if you click in this input without writing anything, the latest project you visited will be shown. It allows to switch between projects more efficiently without going through the Dashboard case!
+
+- [x] **New feature: Explore**
+
+Never two without three.
+
+You are missing inspiration? You want to look at how other users are using TrustInSoft CI? Do you want to know more about the fine details of the C standards? Or just browsing the Internet during the coffee break?
+
+The new Explore page is for you! This page will display various things such as:
+- the most popular projects and users of TrustInSoft CI (but the popularity algorithm is kept secret!)
+- the latest blog posts of our C/C++ experts
+- some hints about our other services if TrustInSoft CI do not cover all your needs
+
+
+- [x] **New feature: Project settings**
+
+A new settings page is available for each project (only for projects you owned). Settings related to this project will be shown on this page.
+
+Also, you can now allow builds to be automatically canceled if a newer one is in the queue for the same reference (branch/tag/Pull Request).
+
+- [x] **New feature: Support for Pull Requests**
+
+If you read the earlier point, you have already been spoiled.
+
+Indeed, now GitHub Pull Requests are supported, and a build is automatically launched if the Pull Request has a `tis.config` file (like any regular branch or tag).
+
+- [x] **New designs**
+
+- With all these new features, the navigation bar has been entirely re-designed, to keep a quick access to any useful feature.
+
+- We also care about small devices. So, we improved the responsive design, allowing results to be easily read from smartphones and tablets too.
+
+- The contrast of some color has also been increased in both the application and the email notifications. It should now be easier to spot problem at a glance.
+
+- [x] **Inspecting analyses results**
+
+The "Explore" button to inspect in detail the analyses result of a test has been renamed into "Inspect" (to not be mistaken with the new "Explore" feature).
+
+Also, the "Inspect" feature has also been disabled for tests using the `"no-result": true` field. With this field, nothing relevant can be inspected within the `Analyzer` view.
+
+- [x] And of course, a lot of various invisible **improvements and bug fixes** have been done to make your visit on TrustInSoft CI as comfortable as possible.
+
+
 ## 2021-01-12
 
 * [x] **The Analyzer view is now open to guest users!** Previously, guest users had no choice but to create a TrustInSoft CI account to browse analysis results with the Analyzer. As TrustInSoft CI user, this made it impractical when you wanted to question someone, who'd never used TrustInSoft CI, about an Undefined Behavior.  Now, you can click on an Explore button, copy-paste the Analyzer URL in the address bar and share it with anyone, who can then freely look at the Undefined Behavior, without ever having to create an account:
